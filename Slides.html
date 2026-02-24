@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASP.NET Core E-Commerce - Complete Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #0066cc;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+            page-break-before: always;
+        }
+        h1:first-of-type {
+            page-break-before: avoid;
+        }
+        h2 {
+            color: #0066cc;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #004999;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #333;
+            margin-top: 20px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #c7254e;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-left: 4px solid #0066cc;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+        pre code {
+            background-color: transparent;
+            color: #333;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #0066cc;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .success {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .cover-page {
+            text-align: center;
+            padding: 100px 0;
+            page-break-after: always;
+        }
+        .cover-page h1 {
+            font-size: 48px;
+            border: none;
+            margin-bottom: 20px;
+        }
+        .cover-page p {
+            font-size: 20px;
+            color: #666;
+        }
+        .toc {
+            page-break-after: always;
+        }
+        .toc ul {
+            list-style: none;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+        @media print {
+            body {
+                padding: 20px;
+            }
+            h1 {
+                page-break-before: always;
+            }
+            h1:first-of-type {
+                page-break-before: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Cover Page -->
+<div class="cover-page">
+    <h1>ASP.NET Core E-Commerce Website</h1>
+    <p><strong>Complete Technical Documentation</strong></p>
+    <p>Razor Pages | Entity Framework Core | Code-First Approach</p>
+    <p style="margin-top: 50px;">Version 1.0</p>
+    <p>December 2024</p>
+</div>
+
+<!-- Table of Contents -->
+<div class="toc">
+    <h1>Table of Contents</h1>
+    <ul>
+        <li><a href="#overview">1. Project Overview</a></li>
+        <li><a href="#tech-stack">2. Technology Stack</a></li>
+        <li><a href="#architecture">3. System Architecture</a></li>
+        <li><a href="#database">4. Database Design</a></li>
+        <li><a href="#features">5. Features & Functionality</a></li>
+        <li><a href="#setup">6. Installation & Setup Guide</a></li>
+        <li><a href="#usage">7. User Guide</a></li>
+        <li><a href="#api">8. API Reference</a></li>
+        <li><a href="#testing">9. Testing Guide</a></li>
+        <li><a href="#deployment">10. Deployment Instructions</a></li>
+        <li><a href="#troubleshooting">11. Troubleshooting</a></li>
+        <li><a href="#appendix">12. Appendix</a></li>
+    </ul>
+</div>
+
+<!-- 1. Project Overview -->
+<h1 id="overview">1. Project Overview</h1>
+
+<h2>1.1 Introduction</h2>
+<p>The ASP.NET Core E-Commerce Website is a full-featured online shopping platform built using modern web development technologies. This application demonstrates industry best practices in building scalable, maintainable, and secure e-commerce solutions.</p>
+
+<h2>1.2 Key Objectives</h2>
+<ul>
+    <li>Provide a complete online shopping experience</li>
+    <li>Implement best practices in software architecture</li>
+    <li>Demonstrate Entity Framework Core Code-First approach</li>
+    <li>Utilize Dependency Injection and Service Layer patterns</li>
+    <li>Create a responsive, user-friendly interface</li>
+    <li>Ensure robust error handling and logging</li>
+</ul>
+
+<h2>1.3 Target Audience</h2>
+<ul>
+    <li><strong>End Users:</strong> Customers looking to browse and purchase products online</li>
+    <li><strong>Developers:</strong> Learning ASP.NET Core Razor Pages and EF Core</li>
+    <li><strong>Businesses:</strong> Small to medium enterprises looking for an e-commerce solution</li>
+</ul>
+
+<!-- 2. Technology Stack -->
+<h1 id="tech-stack">2. Technology Stack</h1>
+
+<h2>2.1 Framework & Runtime</h2>
+<table>
+    <tr>
+        <th>Technology</th>
+        <th>Version</th>
+        <th>Purpose</th>
+    </tr>
+    <tr>
+        <td>.NET Core</td>
+        <td>8.0</td>
+        <td>Runtime Framework</td>
+    </tr>
+    <tr>
+        <td>ASP.NET Core</td>
+        <td>8.0</td>
+        <td>Web Application Framework</td>
+    </tr>
+    <tr>
+        <td>C#</td>
+        <td>12.0</td>
+        <td>Programming Language</td>
+    </tr>
+</table>
+
+<h2>2.2 Data Access & Database</h2>
+<table>
+    <tr>
+        <th>Technology</th>
+        <th>Version</th>
+        <th>Purpose</th>
+    </tr>
+    <tr>
+        <td>Entity Framework Core</td>
+        <td>8.0</td>
+        <td>ORM (Object-Relational Mapping)</td>
+    </tr>
+    <tr>
+        <td>SQL Server Express</td>
+        <td>Latest</td>
+        <td>Database Server</td>
+    </tr>
+    <tr>
+        <td>EF Core Migrations</td>
+        <td>8.0</td>
+        <td>Database Schema Management</td>
+    </tr>
+</table>
+
+<h2>2.3 Frontend Technologies</h2>
+<table>
+    <tr>
+        <th>Technology</th>
+        <th>Version</th>
+        <th>Purpose</th>
+    </tr>
+    <tr>
+        <td>Razor Pages</td>
+        <td>8.0</td>
+        <td>Server-Side Rendering</td>
+    </tr>
+    <tr>
+        <td>Bootstrap</td>
+        <td>5.3</td>
+        <td>CSS Framework</td>
+    </tr>
+    <tr>
+        <td>Bootstrap Icons</td>
+        <td>1.10</td>
+        <td>Icon Library</td>
+    </tr>
+    <tr>
+        <td>jQuery</td>
+        <td>3.6</td>
+        <td>Client-Side Validation</td>
+    </tr>
+</table>
+
+<h2>2.4 Design Patterns & Principles</h2>
+<ul>
+    <li><strong>Dependency Injection:</strong> For loose coupling and testability</li>
+    <li><strong>Repository Pattern:</strong> Through EF Core DbContext</li>
+    <li><strong>Service Layer Pattern:</strong> Business logic separation</li>
+    <li><strong>MVC Pattern:</strong> Through Razor Pages (MVVM variant)</li>
+    <li><strong>Code-First Approach:</strong> Database schema from C# models</li>
+</ul>
+
+<!-- 3. System Architecture -->
+<h1 id="architecture">3. System Architecture</h1>
+
+<h2>3.1 Application Layers</h2>
+
+<h3>3.1.1 Presentation Layer</h3>
+<p>The presentation layer consists of Razor Pages (`.cshtml` files) that handle the UI and user interactions.</p>
+<ul>
+    <li><strong>Location:</strong> <code>/Pages</code> directory</li>
+    <li><strong>Components:</strong> Views (.cshtml) and Code-Behind (.cshtml.cs)</li>
+    <li><strong>Responsibility:</strong> User interface rendering and input collection</li>
+</ul>
+
+<h3>3.1.2 Business Logic Layer</h3>
+<p>Service classes implement business logic and orchestrate data operations.</p>
+<ul>
+    <li><strong>Location:</strong> <code>/Services</code> directory</li>
+    <li><strong>Components:</strong> Service Interfaces and Implementations</li>
+    <li><strong>Responsibility:</strong> Business rules, validation, and data manipulation</li>
+</ul>
+
+<h3>3.1.3 Data Access Layer</h3>
+<p>Entity Framework Core manages database operations through DbContext.</p>
+<ul>
+    <li><strong>Location:</strong> <code>/Data</code> directory</li>
+    <li><strong>Components:</strong> ApplicationDbContext, Models</li>
+    <li><strong>Responsibility:</strong> Database access and entity management</li>
+</ul>
+
+<h2>3.2 Project Structure</h2>
+<pre><code>EcommerceRazorApp/
+├── Data/
+│   └── ApplicationDbContext.cs          # EF Core DbContext
+├── Models/
+│   ├── Category.cs                      # Product categories
+│   ├── Product.cs                       # Product catalog
+│   ├── CartItem.cs                      # Shopping cart items
+│   ├── Order.cs                         # Customer orders
+│   ├── OrderItem.cs                     # Order line items
+│   ├── Payment.cs                       # Payment records
+│   └── CustomerInfo.cs                  # Customer information
+├── Services/
+│   ├── Interfaces/
+│   │   ├── IProductService.cs
+│   │   ├── ICartService.cs
+│   │   ├── IOrderService.cs
+│   │   └── IPaymentService.cs
+│   └── Implementations/
+│       ├── ProductService.cs
+│       ├── CartService.cs
+│       ├── OrderService.cs
+│       └── PaymentService.cs
+├── Pages/
+│   ├── Index.cshtml                     # Home page
+│   ├── Products/
+│   │   ├── Index.cshtml                 # Product catalog
+│   │   └── Details.cshtml               # Product details
+│   ├── Cart/
+│   │   └── Index.cshtml                 # Shopping cart
+│   ├── Checkout/
+│   │   └── Index.cshtml                 # Checkout process
+│   ├── Invoice/
+│   │   └── Index.cshtml                 # Order invoice
+│   └── Shared/
+│       ├── _Layout.cshtml               # Master layout
+│       └── _ValidationScriptsPartial.cshtml
+├── Migrations/                          # EF Core migrations
+├── wwwroot/                             # Static files
+├── Program.cs                           # Application startup
+├── appsettings.json                     # Configuration
+└── EcommerceRazorApp.csproj            # Project file
+</code></pre>
+
+<h2>3.3 Dependency Injection Configuration</h2>
+<p>All services are registered in <code>Program.cs</code>:</p>
+<pre><code>// Database Context
+builder.Services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+    options.UseSqlServer(connectionString));
+
+// Session Management
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
+
+// Application Services
+builder.Services.AddScoped&lt;IProductService, ProductService&gt;();
+builder.Services.AddScoped&lt;ICartService, CartService&gt;();
+builder.Services.AddScoped&lt;IOrderService, OrderService&gt;();
+builder.Services.AddScoped&lt;IPaymentService, PaymentService&gt;();
+</code></pre>
+
+<!-- 4. Database Design -->
+<h1 id="database">4. Database Design</h1>
+
+<h2>4.1 Database Schema</h2>
+
+<h3>4.1.1 Categories Table</h3>
+<table>
+    <tr>
+        <th>Column</th>
+        <th>Type</th>
+        <th>Constraints</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>CategoryId</td>
+        <td>INT</td>
+        <td>PRIMARY KEY, IDENTITY</td>
+        <td>Unique identifier</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>NVARCHAR(100)</td>
+        <td>NOT NULL</td>
+        <td>Category name</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>NVARCHAR(500)</td>
+        <td>NULL</td>
+        <td>Category description</td>
+    </tr>
+</table>
+
+<h3>4.1.2 Products Table</h3>
+<table>
+    <tr>
+        <th>Column</th>
+        <th>Type</th>
+        <th>Constraints</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>ProductId</td>
+        <td>INT</td>
+        <td>PRIMARY KEY, IDENTITY</td>
+        <td>Unique identifier</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>NVARCHAR(200)</td>
+        <td>NOT NULL</td>
+        <td>Product name</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>NVARCHAR(2000)</td>
+        <td>NULL</td>
+        <td>Product description</td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td>DECIMAL(18,2)</td>
+        <td>NOT NULL</td>
+        <td>Product price</td>
+    </tr>
+    <tr>
+        <td>Stock</td>
+        <td>INT</td>
+        <td>NOT NULL</td>
+        <td>Available quantity</td>
+    </tr>
+    <tr>
+        <td>ImageUrl</td>
+        <td>NVARCHAR(500)</td>
+        <td>NULL</td>
+        <td>Product image URL</td>
+    </tr>
+    <tr>
+        <td>IsFeatured</td>
+        <td>BIT</td>
+        <td>NOT NULL</td>
+        <td>Featured product flag</td>
+    </tr>
+    <tr>
+        <td>CategoryId</td>
+        <td>INT</td>
+        <td>FOREIGN KEY, NOT NULL</td>
+        <td>Reference to Categories</td>
+    </tr>
+</table>
+
+<h3>4.1.3 Orders Table</h3>
+<table>
+    <tr>
+        <th>Column</th>
+        <th>Type</th>
+        <th>Constraints</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>OrderId</td>
+        <td>INT</td>
+        <td>PRIMARY KEY, IDENTITY</td>
+        <td>Unique identifier</td>
+    </tr>
+    <tr>
+        <td>OrderDate</td>
+        <td>DATETIME2</td>
+        <td>NOT NULL</td>
+        <td>Order placement date</td>
+    </tr>
+    <tr>
+        <td>CustomerName</td>
+        <td>NVARCHAR(100)</td>
+        <td>NOT NULL</td>
+        <td>Customer full name</td>
+    </tr>
+    <tr>
+        <td>CustomerEmail</td>
+        <td>NVARCHAR(100)</td>
+        <td>NOT NULL</td>
+        <td>Customer email</td>
+    </tr>
+    <tr>
+        <td>CustomerPhone</td>
+        <td>NVARCHAR(20)</td>
+        <td>NOT NULL</td>
+        <td>Customer phone</td>
+    </tr>
+    <tr>
+        <td>ShippingAddress</td>
+        <td>NVARCHAR(500)</td>
+        <td>NOT NULL</td>
+        <td>Delivery address</td>
+    </tr>
+    <tr>
+        <td>City</td>
+        <td>NVARCHAR(100)</td>
+        <td>NOT NULL</td>
+        <td>City</td>
+    </tr>
+    <tr>
+        <td>PostalCode</td>
+        <td>NVARCHAR(20)</td>
+        <td>NOT NULL</td>
+        <td>Postal/ZIP code</td>
+    </tr>
+    <tr>
+        <td>Country</td>
+        <td>NVARCHAR(100)</td>
+        <td>NOT NULL</td>
+        <td>Country</td>
+    </tr>
+    <tr>
+        <td>TotalAmount</td>
+        <td>DECIMAL(18,2)</td>
+        <td>NOT NULL</td>
+        <td>Order total</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>NVARCHAR(50)</td>
+        <td>NOT NULL</td>
+        <td>Order status</td>
+    </tr>
+</table>
+
+<h3>4.1.4 OrderItems Table</h3>
+<table>
+    <tr>
+        <th>Column</th>
+        <th>Type</th>
+        <th>Constraints</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>OrderItemId</td>
+        <td>INT</td>
+        <td>PRIMARY KEY, IDENTITY</td>
+        <td>Unique identifier</td>
+    </tr>
+    <tr>
+        <td>OrderId</td>
+        <td>INT</td>
+        <td>FOREIGN KEY, NOT NULL</td>
+        <td>Reference to Orders</td>
+    </tr>
+    <tr>
+        <td>ProductId</td>
+        <td>INT</td>
+        <td>NOT NULL</td>
+        <td>Product reference</td>
+    </tr>
+    <tr>
+        <td>ProductName</td>
+        <td>NVARCHAR(200)</td>
+        <td>NOT NULL</td>
+        <td>Product name snapshot</td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td>DECIMAL(18,2)</td>
+        <td>NOT NULL</td>
+        <td>Price at purchase</td>
+    </tr>
+    <tr>
+        <td>Quantity</td>
+        <td>INT</td>
+        <td>NOT NULL</td>
+        <td>Quantity ordered</td>
+    </tr>
+</table>
+
+<h3>4.1.5 Payments Table</h3>
+<table>
+    <tr>
+        <th>Column</th>
+        <th>Type</th>
+        <th>Constraints</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>PaymentId</td>
+        <td>INT</td>
+        <td>PRIMARY KEY, IDENTITY</td>
+        <td>Unique identifier</td>
+    </tr>
+    <tr>
+        <td>OrderId</td>
+        <td>INT</td>
+        <td>FOREIGN KEY, NOT NULL, UNIQUE</td>
+        <td>Reference to Orders</td>
+    </tr>
+    <tr>
+        <td>PaymentMethod</td>
+        <td>NVARCHAR(50)</td>
+        <td>NOT NULL</td>
+        <td>Payment method used</td>
+    </tr>
+    <tr>
+        <td>PaymentStatus</td>
+        <td>NVARCHAR(50)</td>
+        <td>NOT NULL</td>
+        <td>Payment status</td>
+    </tr>
+    <tr>
+        <td>TransactionId</td>
+        <td>NVARCHAR(100)</td>
+        <td>NULL</td>
+        <td>Transaction identifier</td>
+    </tr>
+    <tr>
+        <td>Amount</td>
+        <td>DECIMAL(18,2)</td>
+        <td>NOT NULL</td>
+        <td>Payment amount</td>
+    </tr>
+    <tr>
+        <td>PaymentDate</td>
+        <td>DATETIME2</td>
+        <td>NOT NULL</td>
+        <td>Payment date/time</td>
+    </tr>
+    <tr>
+        <td>PaymentNotes</td>
+        <td>NVARCHAR(500)</td>
+        <td>NULL</td>
+        <td>Additional notes</td>
+    </tr>
+</table>
+
+<h2>4.2 Entity Relationships</h2>
+
+<h3>4.2.1 One-to-Many Relationships</h3>
+<ul>
+    <li><strong>Categories → Products:</strong> One category has many products (Cascade Delete)</li>
+    <li><strong>Orders → OrderItems:</strong> One order has many order items (Cascade Delete)</li>
+</ul>
+
+<h3>4.2.2 One-to-One Relationships</h3>
+<ul>
+    <li><strong>Orders → Payments:</strong> One order has one payment (Cascade Delete)</li>
+</ul>
+
+<h2>4.3 Seed Data</h2>
+
+<h3>Categories</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Electronics</td>
+        <td>Electronic devices and gadgets</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Books</td>
+        <td>Books and educational materials</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Clothing</td>
+        <td>Fashion and apparel</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Home</td>
+        <td>Home decor and essentials</td>
+    </tr>
+</table>
+
+<h3>Products (Sample)</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Featured</th>
+    </tr>
+    <tr>
+        <td>Wireless Headphones</td>
+        <td>$149.99</td>
+        <td>Electronics</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>Bluetooth Speaker</td>
+        <td>$79.99</td>
+        <td>Electronics</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>Clean Code Book</td>
+        <td>$42.99</td>
+        <td>Books</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>Cotton T-Shirt</td>
+        <td>$24.99</td>
+        <td>Clothing</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>Ceramic Vase</td>
+        <td>$34.99</td>
+        <td>Home</td>
+        <td>Yes</td>
+    </tr>
+</table>
+
+<!-- 5. Features & Functionality -->
+<h1 id="features">5. Features & Functionality</h1>
+
+<h2>5.1 Home Page</h2>
+<ul>
+    <li>Hero section with welcome message and call-to-action</li>
+    <li>Display of featured products (4 products)</li>
+    <li>Product cards with image, name, price, and category</li>
+    <li>Quick add to cart from home page</li>
+    <li>Responsive navigation bar with cart counter</li>
+    <li>Footer with contact information and links</li>
+</ul>
+
+<h2>5.2 Product Catalog</h2>
+
+<h3>5.2.1 Product Browsing</h3>
+<ul>
+    <li>Display all products in grid layout</li>
+    <li>Product cards showing image, name, description, price, and stock</li>
+    <li>Pagination (6 products per page)</li>
+    <li>View details button for each product</li>
+</ul>
+
+<h3>5.2.2 Filtering & Sorting</h3>
+<ul>
+    <li><strong>Category Filter:</strong> Filter products by category (Electronics, Books, Clothing, Home)</li>
+    <li><strong>Price Sorting:</strong> Sort by price (Low to High, High to Low)</li>
+    <li>Real-time filter and sort application</li>
+</ul>
+
+<h3>5.2.3 Product Actions</h3>
+<ul>
+    <li><strong>View Details:</strong> Navigate to product details page</li>
+    <li><strong>Add to Cart:</strong> Add single item to cart</li>
+    <li><strong>Buy Now:</strong> Add to cart and go to cart page immediately</li>
+</ul>
+
+<h2>5.3 Product Details</h2>
+<ul>
+    <li>Large product image display</li>
+    <li>Complete product information (name, description, price, stock)</li>
+    <li>Category badge and featured badge</li>
+    <li>Stock availability indicator</li>
+    <li>Quantity selector with +/- buttons</li>
+    <li>Quantity validation (min 1, max = stock)</li>
+    <li>Add to Cart button (with selected quantity)</li>
+    <li>Buy Now button (with selected quantity)</li>
+    <li>Breadcrumb navigation</li>
+    <li>Back to Products link</li>
+</ul>
+
+<h2>5.4 Shopping Cart</h2>
+
+<h3>5.4.1 Cart Management</h3>
+<ul>
+    <li>Display all cart items with images</li>
+    <li>Show product name, price, quantity, and total per item</li>
+    <li>Update quantity with +/- buttons</li>
+    <li>Remove items from cart</li>
+    <li>Real-time total calculation</li>
+    <li>Session-based cart storage</li>
+</ul>
+
+<h3>5.4.2 Cart Summary</h3>
+<ul>
+    <li>Total items count</li>
+    <li>Subtotal display</li>
+    <li>Grand total</li>
+    <li>Continue Shopping button</li>
+    <li>Proceed to Checkout button</li>
+</ul>
+
+<h3>5.4.3 Empty Cart Handling</h3>
+<ul>
+    <li>Empty cart message with icon</li>
+    <li>Browse Products call-to-action</li>
+</ul>
+
+<h2>5.5 Checkout Process</h2>
+
+<h3>5.5.1 Customer Information Form</h3>
+<ul>
+    <li><strong>Required Fields:</strong>
+        <ul>
+            <li>Full Name</li>
+            <li>Phone Number (with validation)</li>
+            <li>Email Address (with validation)</li>
+            <li>Street Address</li>
+            <li>City</li>
+            <li>Postal Code</li>
+            <li>Country</li>
+        </ul>
+    </li>
+    <li>Client-side and server-side validation</li>
+    <li>Validation error messages</li>
+</ul>
+
+<h3>5.5.2 Payment Options</h3>
+<ul>
+    <li><strong>Dummy Visa Card:</strong>
+        <ul>
+            <li>Card number input field</li>
+            <li>Card validation (must start with 4, 13-19 digits)</li>
+            <li>Success: Cards starting with 4</li>
+            <li>Failure: Cards not starting with 4</li>
+        </ul>
+    </li>
+    <li><strong>Cash On Delivery:</strong>
+        <ul>
+            <li>No card required</li>
+            <li>Payment status set to "Pending"</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>5.5.3 Order Summary</h3>
+<ul>
+    <li>Display all cart items</li>
+    <li>Show quantity and price per item</li>
+    <li>Display subtotal and grand total</li>
+</ul>
+
+<h2>5.6 Order Invoice</h2>
+
+<h3>5.6.1 Order Information</h3>
+<ul>
+    <li>Order ID</li>
+    <li>Order date and time</li>
+    <li>Order status</li>
+</ul>
+
+<h3>5.6.2 Customer Details</h3>
+<ul>
+    <li>Customer name, email, phone</li>
+    <li>Complete shipping address</li>
+</ul>
+
+<h3>5.6.3 Order Items</h3>
+<ul>
+    <li>Detailed table of ordered items</li>
+    <li>Product name, quantity, unit price, and total</li>
+    <li>Subtotal and grand total</li>
+</ul>
+
+<h3>5.6.4 Payment Information</h3>
+<ul>
+    <li>Payment method used</li>
+    <li>Payment status (Completed/Pending/Failed)</li>
+    <li>Transaction ID</li>
+    <li>Payment date</li>
+    <li>Payment notes</li>
+</ul>
+
+<h3>5.6.5 Additional Features</h3>
+<ul>
+    <li>Success confirmation message</li>
+    <li>Print invoice button</li>
+    <li>Continue Shopping button</li>
+</ul>
+
+<!-- 6. Setup Guide -->
+<h1 id="setup">6. Installation & Setup Guide</h1>
+
+<h2>6.1 Prerequisites</h2>
+
+<h3>6.1.1 Required Software</h3>
+<table>
+    <tr>
+        <th>Software</th>
+        <th>Version</th>
+        <th>Download Link</th>
+    </tr>
+    <tr>
+        <td>.NET SDK</td>
+        <td>8.0 or higher</td>
+        <td>https://dotnet.microsoft.com/download</td>
+    </tr>
+    <tr>
+        <td>SQL Server Express</td>
+        <td>2019 or higher</td>
+        <td>https://www.microsoft.com/sql-server</td>
+    </tr>
+    <tr>
+        <td>Visual Studio / VS Code</td>
+        <td>2022 / Latest</td>
+        <td>https://visualstudio.microsoft.com</td>
+    </tr>
+</table>
+
+<h3>6.1.2 Verify Installation</h3>
+<pre><code># Verify .NET SDK
+dotnet --version
+
+# Should output: 8.0.x or higher
+</code></pre>
+
+<h2>6.2 Installation Steps</h2>
+
+<div class="note">
+    <strong>Note:</strong> Make sure SQL Server Express is running before proceeding.
+</div>
+
+<h3>Step 1: Navigate to Project Directory</h3>
+<pre><code>cd "D:\08. Projects\E-commerce"
+</code></pre>
+
+<h3>Step 2: Restore NuGet Packages</h3>
+<pre><code>dotnet restore
+</code></pre>
+
+<h3>Step 3: Update Database Connection (if needed)</h3>
+<p>Edit <code>appsettings.json</code> if your SQL Server instance name is different:</p>
+<pre><code>{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=YOUR_SERVER\\SQLEXPRESS;Database=ecommerce_site;..."
+  }
+}
+</code></pre>
+
+<h3>Step 4: Build the Project</h3>
+<pre><code>dotnet build
+</code></pre>
+
+<h3>Step 5: Run the Application</h3>
+<pre><code>dotnet run
+</code></pre>
+
+<div class="success">
+    <strong>Success!</strong> The database will be created automatically on first run. Check the console output for the application URL (typically https://localhost:7000).
+</div>
+
+<h2>6.3 Manual Database Setup (Optional)</h2>
+
+<p>If you prefer to manually manage migrations:</p>
+
+<h3>Install EF Core Tools</h3>
+<pre><code>dotnet tool install --global dotnet-ef
+</code></pre>
+
+<h3>Create Migration</h3>
+<pre><code>dotnet ef migrations add InitialCreate
+</code></pre>
+
+<h3>Update Database</h3>
+<pre><code>dotnet ef database update
+</code></pre>
+
+<h2>6.4 Configuration Settings</h2>
+
+<h3>6.4.1 Connection String</h3>
+<pre><code>Server=localhost\SQLEXPRESS;
+Database=ecommerce_site;
+Trusted_Connection=True;
+TrustServerCertificate=True;
+</code></pre>
+
+<h3>6.4.2 Session Settings</h3>
+<ul>
+    <li><strong>Timeout:</strong> 30 minutes</li>
+    <li><strong>Cookie:</strong> HttpOnly, Essential</li>
+    <li><strong>Storage:</strong> In-memory distributed cache</li>
+</ul>
+
+<!-- 7. User Guide -->
+<h1 id="usage">7. User Guide</h1>
+
+<h2>7.1 Complete Shopping Flow</h2>
+
+<h3>Step 1: Browse Products</h3>
+<ol>
+    <li>Visit the home page</li>
+    <li>View featured products</li>
+    <li>Click "Shop Now" or "Products" in navigation</li>
+</ol>
+
+<h3>Step 2: Filter and Search</h3>
+<ol>
+    <li>Select a category from the dropdown</li>
+    <li>Choose price sorting option</li>
+    <li>Browse paginated results</li>
+</ol>
+
+<h3>Step 3: View Product Details</h3>
+<ol>
+    <li>Click "View Details" on any product</li>
+    <li>Review product information</li>
+    <li>Adjust quantity as needed</li>
+</ol>
+
+<h3>Step 4: Add to Cart</h3>
+<ol>
+    <li>Click "Add to Cart" button</li>
+    <li>See confirmation message</li>
+    <li>Notice cart counter in navbar update</li>
+    <li>Continue shopping or proceed to cart</li>
+</ol>
+
+<h3>Step 5: Review Cart</h3>
+<ol>
+    <li>Click cart icon in navbar</li>
+    <li>Review all items</li>
+    <li>Update quantities if needed</li>
+    <li>Remove unwanted items</li>
+    <li>Click "Proceed to Checkout"</li>
+</ol>
+
+<h3>Step 6: Checkout</h3>
+<ol>
+    <li>Fill in customer information form</li>
+    <li>Select payment method</li>
+    <li>If Visa Card: Enter card number</li>
+    <li>Review order summary</li>
+    <li>Click "Place Order"</li>
+</ol>
+
+<h3>Step 7: Order Confirmation</h3>
+<ol>
+    <li>View order confirmation message</li>
+    <li>Review invoice details</li>
+    <li>Check payment status</li>
+    <li>Print invoice (optional)</li>
+    <li>Continue shopping or close browser</li>
+</ol>
+
+<h2>7.2 Payment Testing Guide</h2>
+
+<h3>7.2.1 Successful Visa Payment</h3>
+<div class="success">
+    <p><strong>Test Card Numbers:</strong></p>
+    <ul>
+        <li>4111 1111 1111 1111</li>
+        <li>4000 0000 0000 0000</li>
+        <li>4999 9999 9999 9999</li>
+    </ul>
+    <p><strong>Result:</strong> Payment Status = "Completed"</p>
+</div>
+
+<h3>7.2.2 Failed Visa Payment</h3>
+<div class="warning">
+    <p><strong>Test Card Numbers:</strong></p>
+    <ul>
+        <li>5555 5555 5555 5555 (Mastercard)</li>
+        <li>3782 822463 10005 (Amex)</li>
+        <li>Any number NOT starting with 4</li>
+    </ul>
+    <p><strong>Result:</strong> Payment Status = "Failed", Error message displayed</p>
+</div>
+
+<h3>7.2.3 Cash On Delivery</h3>
+<div class="note">
+    <p><strong>Process:</strong></p>
+    <ul>
+        <li>Select "Cash On Delivery" radio button</li>
+        <li>No card number required</li>
+        <li>Click "Place Order"</li>
+    </ul>
+    <p><strong>Result:</strong> Payment Status = "Pending"</p>
+</div>
+
+<!-- 8. API Reference -->
+<h1 id="api">8. API Reference</h1>
+
+<h2>8.1 Service Interfaces</h2>
+
+<h3>8.1.1 IProductService</h3>
+<pre><code>public interface IProductService
+{
+    Task&lt;List&lt;Product&gt;&gt; GetAllProductsAsync();
+    Task&lt;List&lt;Product&gt;&gt; GetFeaturedProductsAsync();
+    Task&lt;List&lt;Product&gt;&gt; GetProductsByCategoryAsync(int categoryId);
+    Task&lt;Product?&gt; GetProductByIdAsync(int id);
+    Task&lt;List&lt;Category&gt;&gt; GetAllCategoriesAsync();
+    Task&lt;List&lt;Product&gt;&gt; GetProductsSortedByPriceAsync(bool ascending);
+    Task&lt;List&lt;Product&gt;&gt; GetProductsWithPaginationAsync(int pageNumber, int pageSize);
+    Task&lt;int&gt; GetTotalProductCountAsync();
+}
+</code></pre>
+
+<h3>8.1.2 ICartService</h3>
+<pre><code>public interface ICartService
+{
+    List&lt;CartItem&gt; GetCart();
+    void AddToCart(CartItem item);
+    void RemoveFromCart(int productId);
+    void UpdateQuantity(int productId, int quantity);
+    void ClearCart();
+    decimal GetCartTotal();
+    int GetCartItemCount();
+}
+</code></pre>
+
+<h3>8.1.3 IOrderService</h3>
+<pre><code>public interface IOrderService
+{
+    Task&lt;Order&gt; CreateOrderAsync(CustomerInfo customerInfo,
+                                  List&lt;CartItem&gt; cartItems,
+                                  decimal totalAmount);
+    Task&lt;Order?&gt; GetOrderByIdAsync(int orderId);
+    Task&lt;List&lt;Order&gt;&gt; GetAllOrdersAsync();
+    Task&lt;bool&gt; UpdateOrderStatusAsync(int orderId, string status);
+}
+</code></pre>
+
+<h3>8.1.4 IPaymentService</h3>
+<pre><code>public interface IPaymentService
+{
+    Task&lt;Payment&gt; ProcessPaymentAsync(int orderId,
+                                       string paymentMethod,
+                                       decimal amount,
+                                       string? cardNumber = null);
+    Task&lt;Payment?&gt; GetPaymentByOrderIdAsync(int orderId);
+    bool ValidateVisaCard(string cardNumber);
+}
+</code></pre>
+
+<h2>8.2 Razor Page Handlers</h2>
+
+<h3>8.2.1 GET Handlers</h3>
+<table>
+    <tr>
+        <th>Page</th>
+        <th>Handler</th>
+        <th>Parameters</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>/</td>
+        <td>OnGetAsync()</td>
+        <td>None</td>
+        <td>Load featured products</td>
+    </tr>
+    <tr>
+        <td>/Products</td>
+        <td>OnGetAsync()</td>
+        <td>categoryId, sortBy, page</td>
+        <td>Load products with filters</td>
+    </tr>
+    <tr>
+        <td>/Products/Details</td>
+        <td>OnGetAsync()</td>
+        <td>id</td>
+        <td>Load product details</td>
+    </tr>
+    <tr>
+        <td>/Cart</td>
+        <td>OnGet()</td>
+        <td>None</td>
+        <td>Load cart items</td>
+    </tr>
+    <tr>
+        <td>/Checkout</td>
+        <td>OnGet()</td>
+        <td>None</td>
+        <td>Load checkout page</td>
+    </tr>
+    <tr>
+        <td>/Invoice</td>
+        <td>OnGetAsync()</td>
+        <td>orderId</td>
+        <td>Load order invoice</td>
+    </tr>
+</table>
+
+<h3>8.2.2 POST Handlers</h3>
+<table>
+    <tr>
+        <th>Page</th>
+        <th>Handler</th>
+        <th>Parameters</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>/</td>
+        <td>OnPostAddToCartAsync()</td>
+        <td>id</td>
+        <td>Add product to cart</td>
+    </tr>
+    <tr>
+        <td>/Products</td>
+        <td>OnPostAddToCartAsync()</td>
+        <td>id</td>
+        <td>Add product to cart</td>
+    </tr>
+    <tr>
+        <td>/Products</td>
+        <td>OnPostBuyNowAsync()</td>
+        <td>id</td>
+        <td>Add to cart & redirect</td>
+    </tr>
+    <tr>
+        <td>/Products/Details</td>
+        <td>OnPostAddToCartAsync()</td>
+        <td>id</td>
+        <td>Add with quantity</td>
+    </tr>
+    <tr>
+        <td>/Products/Details</td>
+        <td>OnPostBuyNowAsync()</td>
+        <td>id</td>
+        <td>Add with quantity & redirect</td>
+    </tr>
+    <tr>
+        <td>/Cart</td>
+        <td>OnPostRemove()</td>
+        <td>productId</td>
+        <td>Remove item from cart</td>
+    </tr>
+    <tr>
+        <td>/Cart</td>
+        <td>OnPostUpdateQuantity()</td>
+        <td>productId, quantity</td>
+        <td>Update item quantity</td>
+    </tr>
+    <tr>
+        <td>/Checkout</td>
+        <td>OnPostAsync()</td>
+        <td>Form data</td>
+        <td>Process order</td>
+    </tr>
+</table>
+
+<!-- 9. Testing Guide -->
+<h1 id="testing">9. Testing Guide</h1>
+
+<h2>9.1 Functional Testing Scenarios</h2>
+
+<h3>Test Case 1: Browse and Filter Products</h3>
+<div class="note">
+    <p><strong>Steps:</strong></p>
+    <ol>
+        <li>Navigate to Products page</li>
+        <li>Select "Electronics" from category filter</li>
+        <li>Verify only electronic products are shown</li>
+        <li>Select "Price: Low to High"</li>
+        <li>Verify products are sorted by price ascending</li>
+    </ol>
+    <p><strong>Expected Result:</strong> Products filtered and sorted correctly</p>
+</div>
+
+<h3>Test Case 2: Add Multiple Items to Cart</h3>
+<div class="note">
+    <p><strong>Steps:</strong></p>
+    <ol>
+        <li>Add "Wireless Headphones" to cart</li>
+        <li>Add "Bluetooth Speaker" to cart</li>
+        <li>Click cart icon in navbar</li>
+        <li>Verify cart shows 2 items</li>
+        <li>Verify total is sum of both products</li>
+    </ol>
+    <p><strong>Expected Result:</strong> Cart contains both items with correct total</p>
+</div>
+
+<h3>Test Case 3: Update Cart Quantities</h3>
+<div class="note">
+    <p><strong>Steps:</strong></p>
+    <ol>
+        <li>Add any product to cart</li>
+        <li>Go to cart page</li>
+        <li>Click "+" button 3 times</li>
+        <li>Verify quantity increases to 4</li>
+        <li>Verify total updates accordingly</li>
+    </ol>
+    <p><strong>Expected Result:</strong> Quantity and total update correctly</p>
+</div>
+
+<h3>Test Case 4: Complete Purchase with Successful Payment</h3>
+<div class="note">
+    <p><strong>Steps:</strong></p>
+    <ol>
+        <li>Add products to cart</li>
+        <li>Proceed to checkout</li>
+        <li>Fill in all customer fields</li>
+        <li>Select "Dummy Visa Card"</li>
+        <li>Enter card: 4111 1111 1111 1111</li>
+        <li>Click "Place Order"</li>
+    </ol>
+    <p><strong>Expected Result:</strong> Invoice page shows Payment Status = "Completed"</p>
+</div>
+
+<h3>Test Case 5: Failed Payment Handling</h3>
+<div class="note">
+    <p><strong>Steps:</strong></p>
+    <ol>
+        <li>Add products to cart</li>
+        <li>Proceed to checkout</li>
+        <li>Fill in customer information</li>
+        <li>Select "Dummy Visa Card"</li>
+        <li>Enter card: 5555 5555 5555 5555</li>
+        <li>Click "Place Order"</li>
+    </ol>
+    <p><strong>Expected Result:</strong> Error message displayed, remain on checkout page</p>
+</div>
+
+<h3>Test Case 6: Cash On Delivery</h3>
+<div class="note">
+    <p><strong>Steps:</strong></p>
+    <ol>
+        <li>Add products to cart</li>
+        <li>Proceed to checkout</li>
+        <li>Fill in customer information</li>
+        <li>Select "Cash On Delivery"</li>
+        <li>Click "Place Order"</li>
+    </ol>
+    <p><strong>Expected Result:</strong> Invoice shows Payment Status = "Pending"</p>
+</div>
+
+<h2>9.2 Validation Testing</h2>
+
+<h3>Form Validation Tests</h3>
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Test Input</th>
+        <th>Expected Result</th>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>"invalid-email"</td>
+        <td>Validation error: Invalid email</td>
+    </tr>
+    <tr>
+        <td>Phone</td>
+        <td>"abc123"</td>
+        <td>Validation error: Invalid phone</td>
+    </tr>
+    <tr>
+        <td>Full Name</td>
+        <td>(empty)</td>
+        <td>Required field error</td>
+    </tr>
+    <tr>
+        <td>Card Number</td>
+        <td>"123"</td>
+        <td>Invalid card format</td>
+    </tr>
+</table>
+
+<!-- 10. Deployment -->
+<h1 id="deployment">10. Deployment Instructions</h1>
+
+<h2>10.1 Publish for Production</h2>
+
+<h3>Step 1: Update Configuration</h3>
+<p>Modify <code>appsettings.json</code> for production:</p>
+<pre><code>{
+  "ConnectionStrings": {
+    "DefaultConnection": "Production connection string here"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  }
+}
+</code></pre>
+
+<h3>Step 2: Build in Release Mode</h3>
+<pre><code>dotnet publish -c Release -o ./publish
+</code></pre>
+
+<h3>Step 3: Deploy to IIS</h3>
+<ol>
+    <li>Install ASP.NET Core Runtime on server</li>
+    <li>Install ASP.NET Core Module for IIS</li>
+    <li>Copy published files to IIS directory</li>
+    <li>Create Application Pool (.NET CLR Version: No Managed Code)</li>
+    <li>Create website in IIS</li>
+    <li>Set permissions on directory</li>
+</ol>
+
+<h2>10.2 Azure Deployment</h2>
+
+<h3>Prerequisites</h3>
+<ul>
+    <li>Azure account</li>
+    <li>Azure App Service</li>
+    <li>Azure SQL Database</li>
+</ul>
+
+<h3>Deployment Steps</h3>
+<ol>
+    <li>Create App Service in Azure Portal</li>
+    <li>Create Azure SQL Database</li>
+    <li>Update connection string in Azure Configuration</li>
+    <li>Deploy using Visual Studio or Azure CLI</li>
+    <li>Run migrations on Azure SQL</li>
+</ol>
+
+<!-- 11. Troubleshooting -->
+<h1 id="troubleshooting">11. Troubleshooting</h1>
+
+<h2>11.1 Common Issues</h2>
+
+<h3>Issue: Database Connection Failed</h3>
+<div class="warning">
+    <p><strong>Symptoms:</strong> Application crashes on startup with SQL connection error</p>
+    <p><strong>Solutions:</strong></p>
+    <ul>
+        <li>Verify SQL Server is running</li>
+        <li>Check instance name in connection string</li>
+        <li>Ensure Windows Authentication is enabled</li>
+        <li>Check firewall settings</li>
+    </ul>
+</div>
+
+<h3>Issue: Migration Failed</h3>
+<div class="warning">
+    <p><strong>Symptoms:</strong> Error when running migrations</p>
+    <p><strong>Solutions:</strong></p>
+    <pre><code># Remove failed migration
+dotnet ef migrations remove
+
+# Create new migration
+dotnet ef migrations add InitialCreate
+
+# Update database
+dotnet ef database update
+</code></pre>
+</div>
+
+<h3>Issue: Session Not Working</h3>
+<div class="warning">
+    <p><strong>Symptoms:</strong> Cart items not persisting</p>
+    <p><strong>Solutions:</strong></p>
+    <ul>
+        <li>Verify session middleware is configured in Program.cs</li>
+        <li>Check middleware order (UseSession after UseRouting)</li>
+        <li>Clear browser cookies</li>
+        <li>Restart application</li>
+    </ul>
+</div>
+
+<h3>Issue: Add to Cart Not Working</h3>
+<div class="warning">
+    <p><strong>Symptoms:</strong> Click Add to Cart but nothing happens</p>
+    <p><strong>Solutions:</strong></p>
+    <ul>
+        <li>Check browser console for JavaScript errors</li>
+        <li>Verify antiforgery token is present in form</li>
+        <li>Check session is enabled</li>
+        <li>Restart application to pick up code changes</li>
+    </ul>
+</div>
+
+<h3>Issue: Port Already in Use</h3>
+<div class="warning">
+    <p><strong>Symptoms:</strong> Application won't start - port conflict</p>
+    <p><strong>Solutions:</strong></p>
+    <pre><code># Use different port
+dotnet run --urls "https://localhost:5001;http://localhost:5000"
+
+# Or edit launchSettings.json
+</code></pre>
+</div>
+
+<h2>11.2 Performance Issues</h2>
+
+<h3>Slow Page Load</h3>
+<ul>
+    <li>Enable response caching</li>
+    <li>Implement lazy loading for images</li>
+    <li>Add database indexes on frequently queried columns</li>
+    <li>Use async/await properly</li>
+</ul>
+
+<h3>High Memory Usage</h3>
+<ul>
+    <li>Check for memory leaks in services</li>
+    <li>Ensure DbContext is properly disposed</li>
+    <li>Limit session data size</li>
+    <li>Configure session timeout appropriately</li>
+</ul>
+
+<!-- 12. Appendix -->
+<h1 id="appendix">12. Appendix</h1>
+
+<h2>12.1 Useful Commands</h2>
+
+<h3>Entity Framework Core</h3>
+<pre><code># List migrations
+dotnet ef migrations list
+
+# Remove last migration
+dotnet ef migrations remove
+
+# Update to specific migration
+dotnet ef database update MigrationName
+
+# Generate SQL script
+dotnet ef migrations script
+
+# Drop database
+dotnet ef database drop
+</code></pre>
+
+<h3>NuGet Package Management</h3>
+<pre><code># Restore packages
+dotnet restore
+
+# Add package
+dotnet add package PackageName
+
+# Update package
+dotnet add package PackageName --version X.X.X
+
+# Remove package
+dotnet remove package PackageName
+
+# List packages
+dotnet list package
+</code></pre>
+
+<h3>Build & Run</h3>
+<pre><code># Clean build output
+dotnet clean
+
+# Build project
+dotnet build
+
+# Run project
+dotnet run
+
+# Watch for changes (auto-rebuild)
+dotnet watch run
+
+# Publish for production
+dotnet publish -c Release
+</code></pre>
+
+<h2>12.2 File Locations Reference</h2>
+
+<table>
+    <tr>
+        <th>Component</th>
+        <th>Location</th>
+    </tr>
+    <tr>
+        <td>Configuration</td>
+        <td>appsettings.json</td>
+    </tr>
+    <tr>
+        <td>Database Context</td>
+        <td>Data/ApplicationDbContext.cs</td>
+    </tr>
+    <tr>
+        <td>Models</td>
+        <td>Models/*.cs</td>
+    </tr>
+    <tr>
+        <td>Service Interfaces</td>
+        <td>Services/Interfaces/I*.cs</td>
+    </tr>
+    <tr>
+        <td>Service Implementations</td>
+        <td>Services/Implementations/*Service.cs</td>
+    </tr>
+    <tr>
+        <td>Razor Pages (Views)</td>
+        <td>Pages/**/*.cshtml</td>
+    </tr>
+    <tr>
+        <td>Razor Pages (Code-Behind)</td>
+        <td>Pages/**/*.cshtml.cs</td>
+    </tr>
+    <tr>
+        <td>Migrations</td>
+        <td>Migrations/*.cs</td>
+    </tr>
+    <tr>
+        <td>Static Files</td>
+        <td>wwwroot/*</td>
+    </tr>
+</table>
+
+<h2>12.3 External Resources</h2>
+
+<h3>Official Documentation</h3>
+<ul>
+    <li><strong>ASP.NET Core:</strong> https://docs.microsoft.com/aspnet/core</li>
+    <li><strong>Entity Framework Core:</strong> https://docs.microsoft.com/ef/core</li>
+    <li><strong>Razor Pages:</strong> https://docs.microsoft.com/aspnet/core/razor-pages</li>
+    <li><strong>Bootstrap:</strong> https://getbootstrap.com/docs/5.3</li>
+</ul>
+
+<h3>Tutorials</h3>
+<ul>
+    <li>Getting Started with Razor Pages</li>
+    <li>EF Core Code-First Approach</li>
+    <li>Dependency Injection in ASP.NET Core</li>
+    <li>ASP.NET Core Security Best Practices</li>
+</ul>
+
+<h2>12.4 Version History</h2>
+
+<table>
+    <tr>
+        <th>Version</th>
+        <th>Date</th>
+        <th>Changes</th>
+    </tr>
+    <tr>
+        <td>1.0</td>
+        <td>December 2024</td>
+        <td>Initial release with all core features</td>
+    </tr>
+</table>
+
+<h2>12.5 Contact & Support</h2>
+
+<p>For questions, issues, or feedback about this project:</p>
+<ul>
+    <li><strong>Email:</strong> support@ecommerce.com</li>
+    <li><strong>GitHub:</strong> [Repository URL]</li>
+    <li><strong>Documentation:</strong> README.md, QUICKSTART.md, PROJECT_SUMMARY.md</li>
+</ul>
+
+<hr>
+
+<div style="text-align: center; margin-top: 50px; padding: 30px; background-color: #f8f9fa;">
+    <h3>End of Documentation</h3>
+    <p>ASP.NET Core E-Commerce Website - Version 1.0</p>
+    <p style="color: #666;">Built with ASP.NET Core 8.0 | Entity Framework Core | Razor Pages | Bootstrap 5</p>
+</div>
+
+</body>
+</html>
