@@ -16,13 +16,14 @@ namespace EcommerceRazorApp.Pages.Admin.Products
         }
 
         [BindProperty]
-        public Product Product { get; set; }
+        public Product Product { get; set; } = new();
 
-        public List<Category> Categories { get; set; }
+        public List<Category> Categories { get; set; } = new();
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            Product = await _context.Products.FindAsync(id);
+            Product = await _context.Products
+                        .FirstOrDefaultAsync(p => p.ProductId == id);
 
             if (Product == null)
                 return NotFound();
@@ -34,10 +35,30 @@ namespace EcommerceRazorApp.Pages.Admin.Products
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-                return Page();
+            Categories = await _context.Categories.ToListAsync();
 
-            _context.Attach(Product).State = EntityState.Modified;
+            if (!ModelState.IsValid)
+            {
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
+
+                return Page();
+            }
+
+            Console.WriteLine("MODEL VALID");
+
+            var productFromDb = await _context.Products
+                .FirstOrDefaultAsync(p => p.ProductId == Product.ProductId);
+
+            if (productFromDb == null)
+                return NotFound();
+
+            productFromDb.Name = Product.Name;
+            productFromDb.Price = Product.Price;
+            productFromDb.CategoryId = Product.CategoryId;
+
             await _context.SaveChangesAsync();
 
             return RedirectToPage("Index");

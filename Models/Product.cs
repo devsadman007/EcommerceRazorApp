@@ -32,6 +32,6 @@ namespace EcommerceRazorApp.Models
 
         // Navigation properties
         [ForeignKey("CategoryId")]
-        public virtual Category Category { get; set; } = null!;
+        public virtual Category? Category { get; set; } = null!;
     }
 }
