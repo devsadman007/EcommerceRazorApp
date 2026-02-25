@@ -1,0 +1,68 @@
+﻿@page "{id:int}"
+@model EcommerceRazorApp.Pages.Admin.Products.DetailsModel
+
+<div class="container mt-5">
+
+    <!-- Page Header -->
+    <div class="mb-4">
+        <h3 class="fw-bold">
+            <i class="bi bi-eye"></i> Product Details
+        </h3>
+        <p class="text-muted mb-0">View detailed information about this product</p>
+    </div>
+
+    <div class="card shadow border-0 rounded-3">
+        <div class="card-body p-4">
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-semibold">
+                    Product Name
+                </div>
+                <div class="col-md-9">
+                    @Model.Product?.Name
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-semibold">
+                    Price
+                </div>
+                <div class="col-md-9">
+                    <span class="badge bg-success fs-6">
+                        ৳ @Model.Product?.Price
+                    </span>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row mb-4">
+                <div class="col-md-3 fw-semibold">
+                    Category
+                </div>
+                <div class="col-md-9 text-muted">
+                    @Model.Product?.Category?.Name
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-flex justify-content-between">
+
+                <a asp-page="Index" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Back
+                </a>
+
+                <a asp-page="Edit"
+                   asp-route-id="@Model.Product?.ProductId"
+                   class="btn btn-warning shadow-sm">
+                    <i class="bi bi-pencil-square"></i> Edit
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

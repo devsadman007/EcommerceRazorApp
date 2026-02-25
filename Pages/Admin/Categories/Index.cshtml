@@ -1,0 +1,76 @@
+﻿@page
+@model EcommerceRazorApp.Pages.Admin.Categories.IndexModel
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold">
+            <i class="bi bi-tags"></i> Category Management
+        </h3>
+
+        <a asp-page="Create" class="btn btn-primary shadow-sm">
+            <i class="bi bi-plus-circle"></i> Add Category
+        </a>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="card shadow border-0">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Name</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Categories.Any())
+                        {
+                            @foreach (var item in Model.Categories)
+                            {
+                                <tr>
+                                    <td class="fw-semibold">@item.Name</td>
+                                    <td class="text-end">
+                                        <a asp-page="Details" asp-route-id="@item.CategoryId"
+                                           class="btn btn-sm btn-outline-info me-1">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+
+                                        <a asp-page="Edit" asp-route-id="@item.CategoryId"
+                                           class="btn btn-sm btn-outline-warning me-1">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+
+                                        <a asp-page="Delete" asp-route-id="@item.CategoryId"
+                                           class="btn btn-sm btn-outline-danger">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="2" class="text-center text-muted py-4">
+                                    No categories found.
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,31 @@
+﻿@page "{id:int}"
+@model EcommerceRazorApp.Pages.Admin.Categories.EditModel
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-warning text-white">
+            <h4>Edit Category</h4>
+        </div>
+        <div class="card-body">
+
+            <form method="post">
+                <input type="hidden" asp-for="Category.CategoryId" />
+
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input asp-for="Category.Name" class="form-control" />
+                    <span asp-validation-for="Category.Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea asp-for="Category.Description" class="form-control"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success">Update</button>
+                <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+            </form>
+
+        </div>
+    </div>
+</div>
