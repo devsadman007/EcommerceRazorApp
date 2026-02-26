@@ -1,39 +1,88 @@
 ﻿@page "{id:int}"
 @model EcommerceRazorApp.Pages.Admin.Products.EditModel
+@{
+    ViewData["Title"] = "Edit Product";
+}
 
-<h2>Edit Product</h2>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
 
-<form method="post">
-    <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="card shadow-lg border-0 rounded-4">
 
-    <input type="hidden" asp-for="Product.ProductId" />
+                <!-- Card Header -->
+                <div class="card-header bg-primary text-white rounded-top-4">
+                    <h4 class="mb-0">
+                        <i class="bi bi-pencil-square me-2"></i>
+                        Edit Product
+                    </h4>
+                </div>
 
-    <div class="form-group">
-        <label>Name</label>
-        <input asp-for="Product.Name" class="form-control" />
-        <span asp-validation-for="Product.Name" class="text-danger"></span>
+                <!-- Card Body -->
+                <div class="card-body p-4">
+
+                    <form method="post">
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="alert alert-danger d-none"
+                             id="validationSummary">
+                        </div>
+
+                        <input type="hidden" asp-for="Product.ProductId" />
+
+                        <!-- Product Name -->
+                        <div class="mb-3">
+                            <label asp-for="Product.Name" class="form-label fw-semibold"></label>
+                            <input asp-for="Product.Name" class="form-control form-control-lg" />
+                            <span asp-validation-for="Product.Name" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="mb-3">
+                            <label asp-for="Product.Price" class="form-label fw-semibold"></label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input asp-for="Product.Price" class="form-control form-control-lg" />
+                            </div>
+                            <span asp-validation-for="Product.Price" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Category Dropdown -->
+                        <div class="mb-4">
+                            <label asp-for="Product.CategoryId" class="form-label fw-semibold"></label>
+                            <select asp-for="Product.CategoryId"
+                                    class="form-select form-select-lg">
+                                <option value="">-- Select Category --</option>
+                                @foreach (var cat in Model.Categories)
+                                {
+                                    <option value="@cat.CategoryId">
+                                        @cat.Name
+                                    </option>
+                                }
+                            </select>
+                            <span asp-validation-for="Product.CategoryId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-end gap-2">
+                            <a asp-page="Index" class="btn btn-outline-secondary px-4">
+                                Cancel
+                            </a>
+
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="bi bi-check-circle me-1"></i>
+                                Update Product
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
     </div>
-
-    <div class="form-group">
-        <label>Price</label>
-        <input asp-for="Product.Price" class="form-control" />
-        <span asp-validation-for="Product.Price" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label>Category</label>
-        <select asp-for="Product.CategoryId" class="form-control">
-            <option value="">-- Select Category --</option>
-            @foreach (var cat in Model.Categories)
-            {
-                <option value="@cat.CategoryId">@cat.Name</option>
-            }
-        </select>
-        <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary mt-2">Update</button>
-</form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

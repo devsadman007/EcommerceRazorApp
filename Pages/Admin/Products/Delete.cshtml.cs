@@ -2,6 +2,7 @@ using EcommerceRazorApp.Data;
 using EcommerceRazorApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceRazorApp.Pages.Admin.Products
 {
@@ -19,11 +20,14 @@ namespace EcommerceRazorApp.Pages.Admin.Products
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            Product = await _context.Products.FindAsync(id);
+            var product = await _context.Products
+                .Include(p => p.Category)   //  THIS IS REQUIRED
+                .FirstOrDefaultAsync(p => p.ProductId == id);
 
-            if (Product == null)
+            if (product == null)
                 return NotFound();
 
+            Product = product;
             return Page();
         }
 
