@@ -60,7 +60,7 @@ namespace EcommerceRazorApp.Pages.Admin.Products
             productFromDb.CategoryId = Product.CategoryId;
 
             await _context.SaveChangesAsync();
-
+            TempData["SuccessMessage"] = "Product updated successfully!";
             return RedirectToPage("Index");
         }
     }

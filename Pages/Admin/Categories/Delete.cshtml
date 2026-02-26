@@ -1,0 +1,64 @@
+﻿@page
+@model EcommerceRazorApp.Pages.Admin.Categories.DeleteModel
+@{
+    ViewData["Title"] = "Delete Category";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <!-- Card Header -->
+                <div class="card-header bg-danger text-white rounded-top-4">
+                    <h4 class="mb-0">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        Confirm Delete
+                    </h4>
+                </div>
+
+                <!-- Card Body -->
+                <div class="card-body p-4">
+
+                    <div class="alert alert-warning d-flex align-items-center" role="alert">
+                        <i class="bi bi-exclamation-circle-fill me-2"></i>
+                        <div>
+                            This action cannot be undone. Please confirm before deleting.
+                        </div>
+                    </div>
+
+                    <dl class="row mb-4">
+                        <dt class="col-sm-4 fw-semibold">
+                            Category Name
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.Category.Name
+                        </dd>
+
+                        <dt class="col-sm-4 fw-semibold">
+                            Description
+                        </dt>
+                        <dd class="col-sm-8">
+                            @(Model.Category.Description ?? "N/A")
+                        </dd>
+                    </dl>
+
+                    <form method="post" class="d-flex justify-content-end gap-2">
+                        <input type="hidden" asp-for="Category.CategoryId" />
+
+                        <a asp-page="Index" class="btn btn-outline-secondary px-4">
+                            Cancel
+                        </a>
+
+                        <button type="submit" class="btn btn-danger px-4">
+                            <i class="bi bi-trash-fill me-1"></i> Delete
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

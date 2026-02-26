@@ -37,6 +37,8 @@ namespace EcommerceRazorApp.Pages.Admin.Products
                 await _context.SaveChangesAsync();
             }
 
+            TempData["SuccessMessage"] = "Product Deleted successfully!";
+
             return RedirectToPage("Index");
         }
     }

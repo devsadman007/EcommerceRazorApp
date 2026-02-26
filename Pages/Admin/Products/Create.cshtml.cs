@@ -28,6 +28,7 @@ namespace EcommerceRazorApp.Pages.Admin.Products
         {
             _context.Products.Add(Product);
             await _context.SaveChangesAsync();
+            TempData["SuccessMessage"] = "Product Created successfully!";
             return RedirectToPage("Index");
         }
     }

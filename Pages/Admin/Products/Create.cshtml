@@ -1,28 +1,68 @@
 ﻿@page
 @model EcommerceRazorApp.Pages.Admin.Products.CreateModel
 
-<h2>Create Product</h2>
+<div class="container mt-5">
 
-<form method="post">
-    <div class="form-group">
-        <label>Name</label>
-        <input asp-for="Product.Name" class="form-control" />
+    <!-- Page Header -->
+    <div class="mb-4">
+        <h3 class="fw-bold">
+            <i class="bi bi-plus-circle"></i> Create Product
+        </h3>
+        <p class="text-muted mb-0">Add a new product to your catalog</p>
     </div>
 
-    <div class="form-group">
-        <label>Price</label>
-        <input asp-for="Product.Price" class="form-control" />
+    <div class="card shadow border-0 rounded-3">
+        <div class="card-body p-4">
+
+            <form method="post">
+
+                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                <!-- Product Name -->
+                <div class="mb-3">
+                    <label asp-for="Product.Name" class="form-label fw-semibold"></label>
+                    <input asp-for="Product.Name" class="form-control" placeholder="Enter product name" />
+                    <span asp-validation-for="Product.Name" class="text-danger"></span>
+                </div>
+
+                <!-- Price -->
+                <div class="mb-3">
+                    <label asp-for="Product.Price" class="form-label fw-semibold"></label>
+                    <input asp-for="Product.Price" class="form-control" placeholder="Enter price" />
+                    <span asp-validation-for="Product.Price" class="text-danger"></span>
+                </div>
+
+                <!-- Category -->
+                <div class="mb-4">
+                    <label asp-for="Product.CategoryId" class="form-label fw-semibold"></label>
+                    <select asp-for="Product.CategoryId" class="form-select">
+                        <option value="">-- Select Category --</option>
+                        @foreach (var cat in Model.Categories)
+                        {
+                            <option value="@cat.CategoryId">@cat.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-between">
+                    <a asp-page="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left"></i> Back
+                    </a>
+
+                    <button type="submit" class="btn btn-success shadow-sm">
+                        <i class="bi bi-check-circle"></i> Save Product
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
     </div>
 
-    <div class="form-group">
-        <label>Category</label>
-        <select asp-for="Product.CategoryId" class="form-control">
-            @foreach (var cat in Model.Categories)
-            {
-                <option value="@cat.CategoryId">@cat.Name</option>
-            }
-        </select>
-    </div>
+</div>
 
-    <button type="submit" class="btn btn-success mt-2">Save</button>
-</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
